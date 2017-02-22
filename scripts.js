@@ -59,7 +59,23 @@ function canvasAnimation() {
 		context.fillRect(0,0,300,300);
 	}
 
+	//Declare image holder
+	var image1 = null;
+
+	function drawingImage() {
+		image1 = new Image(); //create object
+		image1.src = "image.jpg"; //assign src
+		image1.addEventListener('load', loadingImage);//Load the image and call a function
+	}
+
+	function loadingImage() {
+		var myCanvas = document.getElementById("imageCanvas");
+		var context = myCanvas.getContext("2d");
+		context.drawImage(image1, 10, 10); //image object and the co-ordinates
+	}
+
 	drawCircle();
 	drawLine();
 	drawGradient();
+	drawingImage();
 }
