@@ -48,6 +48,18 @@ function canvasAnimation() {
 		context.fillText("Text here", 90, 160);
 	}
 
+	function drawGradient() {
+		var myCanvas = document.getElementById("gradientCanvas");
+		var context = myCanvas.getContext("2d");
+
+		var gd = context.createRadialGradient(150,150,50, 150,150,200); //x,y,rad of inner circle + x,y,rad of outer circle
+		gd.addColorStop(0,"red"); // Start position - 0
+		gd.addColorStop(1,"white"); //Color stops - fading white and more red, End position - 1
+		context.fillStyle = gd; // Use gradient to fill style for the rectangle
+		context.fillRect(0,0,300,300);
+	}
+
 	drawCircle();
 	drawLine();
+	drawGradient();
 }
