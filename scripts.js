@@ -42,6 +42,10 @@ function canvasAnimation() {
 		context.moveTo(300,0);
 		context.lineTo(0,300);
 		context.stroke();
+
+		context.font = "20px Georgia Italic";
+		context.fillStyle = "#f0f0f0";
+		context.fillText("Text here", 90, 160);
 	}
 
 	drawCircle();
