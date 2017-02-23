@@ -74,8 +74,36 @@ function canvasAnimation() {
 		context.drawImage(image1, 10, 10); //image object and the co-ordinates
 	}
 
+	/* Bounce */
+	var bounceX = 30,
+		bounceY = 20,
+		changeX = 7,
+		changeY = 7,
+		bounceCanvas = document.getElementById("bounceCanvas"),
+		bounceContext = bounceCanvas.getContext("2d");
+
+	function drawBounce() {
+		setInterval(drawBall,20);
+	}
+
+	function drawBall() {
+		bounceContext.clearRect(0,0,300,300);
+		bounceContext.beginPath();
+		bounceContext.arc(bounceX,bounceY,20, 0, 2*Math.PI, true);//initial x y, radius, initial and ending angle
+		bounceContext.fillStyle = "green"; //Color to be used
+		bounceContext.closePath();
+		bounceContext.fill();//Fill the color
+
+		if(bounceX < 10 || bounceX > 290) changeX=-changeX;
+		if(bounceY < 10 || bounceY > 290) changeY=-changeY; //reverse on edge - 10 taken in account for radius
+
+		bounceX+=changeX;
+		bounceY+=changeY;		
+	}
+
 	drawCircle();
 	drawLine();
 	drawGradient();
 	drawingImage();
+	drawBounce();
 }
